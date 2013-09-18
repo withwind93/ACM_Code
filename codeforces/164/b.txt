@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string.h>
+#include <stdio.h>
+#include <limits.h>
+#include <math.h>
+#include <stdlib.h>
+using namespace std;
+int main()
+{
+	int n;
+	int sum;
+	while(scanf("%d",&n)!=EOF)
+	{
+		sum=0;
+		for(int i=1;i<n;i++)
+		{
+			sum+=i*(n-i);
+		}
+		sum+=n;
+		printf("%d\n",sum);
+	}
+	return 0;
+}

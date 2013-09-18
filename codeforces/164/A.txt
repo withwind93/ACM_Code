@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string.h>
+#include <stdio.h>
+#include <limits.h>
+#include <math.h>
+#include <stdlib.h>
+using namespace std;
+int main()
+{
+	int a[40],b[40];
+	int hash[110];
+	int n,ans;
+	while(scanf("%d",&n)!=EOF)
+	{
+		ans=0;
+		for(int i=0;i<101;i++)
+		{
+			hash[i]=0;
+		}
+		for(int i=0;i<n;i++)
+		{
+			scanf("%d %d",&a[i],&b[i]);
+		}
+		for(int i=0;i<n;i++)
+		{
+			hash[a[i]]++;
+		}
+		for(int i=0;i<n;i++)
+		{
+			if(hash[b[i]]!=0)
+			  ans+=hash[b[i]];
+		}
+		printf("%d\n",ans);
+	}
+	return 0;
+}

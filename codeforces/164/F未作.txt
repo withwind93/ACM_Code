@@ -1,0 +1,43 @@
+/**************************/
+#include<cstdio>
+#include<cstdlib>
+#include<cstring>
+#include<algorithm>
+#include<vector>
+#include<cstring>
+#include<map>
+#include<set>
+#include<queue>
+#define pb push_back
+#define mp make_pair
+using namespace std;
+struct T
+{
+    double p,t;
+    bool operator<(const T &a)const
+    {
+        return t*p*(1-a.p)>a.t*a.p*(1-p);
+    }
+
+}a[50020];
+int n;
+double s;
+int main()
+{
+    int i,j;
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    scanf("%lf%lf",&a[i].t,&a[i].p),a[i].p/=100;
+    sort(a+1,a+1+n);
+    double ans=0;
+    s=0;
+    for(i=n;i>=1;i--)
+    {
+        ans+=a[i].t*a[i].p*s;
+        ans+=a[i].t;
+        s+=1-a[i].p;
+    }
+    printf("%.9lf\n",ans);
+}
+
+/********************************/

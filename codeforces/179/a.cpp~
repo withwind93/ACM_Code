@@ -1,0 +1,47 @@
+/*************************************************************************
+    > File Name: a.cpp
+    > Author: withwind
+    > Mail: withwind93@gmail.com 
+    > Created Time: 2013/4/11 23:26:33
+ ************************************************************************/
+
+#include <limits.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+int a[110];
+int main()
+{
+	int i,j,k;
+	int n;
+	int max = 0;
+	scanf("%d",&n);
+	int flag = 0;
+	k = 1;
+	for(i=1;i<=n;i++)
+	{
+	  scanf("%d",&a[i]);
+		if(i!=1)
+		{
+			if(a[i] == a[i-1])
+			{
+				k++;
+				if(k>max)	max = k;
+			}
+			else
+			{
+				k = 1;
+			}
+		}
+	}
+	if(n==1)	{printf("YES\n");return 0;}
+//	printf("%d %d\n",max,n);
+	if(max*2 > n+1)
+		printf("NO\n");
+	else
+	  printf("YES\n");
+	return 0;
+}

@@ -1,0 +1,51 @@
+#include<iostream>
+#include<cstring>
+#include<cstdio>
+#include<algorithm>
+#include<cmath>
+#include<queue>
+#include<map>
+using namespace std;
+
+long long  quickpow(long long   m , long long   n , long long   k){ 
+    long long   ans = 1; 
+    while(n){ 
+        if(n&1)//如果n是奇数 
+            ans = (ans * m) % k; 
+        n = n >> 1;//位运算“右移1类似除1” 
+        m = (m * m) % k; 
+    } 
+    return ans; 
+} 
+
+
+int n, k, m;
+int ans = 0;
+
+int main()
+{
+	int z;
+	scanf("%d%d%d", &n, &m, &k);
+	z = n - m;
+	int uu = m / (k - 1);
+	
+	if(m <= z)
+	{
+		ans = m % 1000000009;
+	}
+	else
+	{
+		long long tmp = m - z * (k - 1);
+		int u, v;
+		u = tmp / k;
+		v = tmp % k;
+		tmp = (quickpow(2, u + 1, 1000000009) - 2 + 1000000009) % 1000000009;
+		tmp = tmp * k % 1000000009;
+		ans += tmp;
+		ans += v + z * (k - 1);
+		ans %= 1000000009;
+	}
+	printf("%d\n", ans);
+    return 0;
+}
+

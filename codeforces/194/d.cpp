@@ -1,0 +1,39 @@
+#include <limits.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+#define llg long long
+template<typename T> inline void checkMin(T& a, T b) { if (a > b) a = b; }
+template<typename T> inline void checkMax(T& a, T b) { if (a < b) a = b; }
+template<class T> inline T Min(T x,T y){return (x>y?y:x);} 
+template<class T> inline T Max(T x,T y){return (x<y?y:x);}
+bool map[1010][1010];
+bool hashx[1010],hashy[1010];
+int main()
+{
+	int n,m;
+	scanf("%d %d",&n,&m);
+	for(int i = 1;i <= m;i++)
+	{
+		int x,y;
+		scanf("%d %d",&x,&y);
+		hashx[x] = 1;
+		hashy[y] = 1;
+	}
+	int ans = 0;
+	for(int i = 2;i <= n-1;i++)
+	{
+		if(hashx[i] == 0)
+		  ans++;
+		if(hashy[i] == 0)
+		  ans++;
+	}
+	//ans = ans/2;
+	if(n%2 == 1 && hashx[(n+1)/2] == 0 && hashy[(n+1)/2] == 0 && ans > 0)	ans--;
+	printf("%d\n",ans);
+	return 0;
+}
