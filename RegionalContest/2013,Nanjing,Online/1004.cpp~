@@ -7,7 +7,6 @@ using namespace std;
 bool edge[110][110];
 bool vis[110];
 vector<int> lleft,rright;
-
 int main()
 {
     int n;
@@ -115,3 +114,4 @@ int main()
     }
     return 0;
 }
+

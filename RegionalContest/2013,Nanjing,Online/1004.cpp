@@ -7,7 +7,6 @@ using namespace std;
 bool edge[110][110];
 bool vis[110];
 vector<int> lleft,rright;
-
 int main()
 {
     int n;
@@ -43,9 +42,6 @@ int main()
         lleft.clear();
         rright.clear();
         if(flag1 == -1 && flag2 == -1)  {printf("YES\n");continue;}
-        
-        //printf("flag = %d %d\n",flag1,flag2);
-        
         vis[flag1] = true;vis[flag2] = true;
         int cnt = 2;
         lleft.push_back(flag1);rright.push_back(flag2);
