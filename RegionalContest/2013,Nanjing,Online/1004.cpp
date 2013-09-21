@@ -51,8 +51,7 @@ int main()
         {
             if(cnt == n)    break;
             if(noflag)  break;
-			if(oneflag == 0)	
-			{
+			if(oneflag == 0){
 				for(int i = 1;i <= n;i++)
 					if(vis[i] == false)
 					{
